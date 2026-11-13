@@ -1,8 +1,6 @@
 import { supabase } from '@/lib/supabase'
 import StoreFront from './StoreFront'
 
-export const dynamic = 'force-dynamic';
-
 export default async function Home() {
   const { data: products, error } = await supabase.from('clothes').select('*')
 
@@ -14,7 +12,7 @@ export default async function Home() {
             خطأ في جلب البيانات: {error.message}
           </div>
         )}
-
+        
         <StoreFront products={products || []} />
       </div>
     </main>
